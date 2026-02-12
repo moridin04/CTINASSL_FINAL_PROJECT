@@ -1,0 +1,20 @@
+{
+  "name": "flicknest",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c green,cyan \"npm --prefix server run dev\" \"npm --prefix flicknest-frontend start\"",
+    "backend": "npm --prefix server run dev",
+    "frontend": "npm --prefix flicknest-frontend start",
+    "build": "npm --prefix flicknest-frontend run build",
+    "build:prod": "npm --prefix flicknest-frontend run build:prod",
+    "start:prod": "set NODE_ENV=production&& npm --prefix server start",
+    "postinstall": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"npm --prefix server install; npm --prefix flicknest-frontend install\""
+  },
+  "dependencies": {
+    "recharts": "^3.5.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

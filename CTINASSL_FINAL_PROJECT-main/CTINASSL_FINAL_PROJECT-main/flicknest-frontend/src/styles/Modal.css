@@ -1,0 +1,270 @@
+/* src/styles/Modal.css */
+
+/* 1. Overlay with Blur Effect */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px); /* Premium blur effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* 2. The Glass Card */
+.modal-glass {
+  background: #15171e; /* Dark Card */
+  border: 1px solid #2a2d36;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 3. Header Typography */
+.modal-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.modal-header h2 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+}
+
+.modal-header p {
+  color: #8b92a5;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* 4. Close Button */
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: #8b92a5;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* 5. Inputs & Toggle Wrapper */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 16px;
+  padding-right: 45px; /* Space for the eye icon */
+  background: #1f222b;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  outline: none;
+  background: #252933;
+  border-color: #ffb400; /* Brand Color */
+  box-shadow: 0 0 0 4px rgba(255, 180, 0, 0.1);
+}
+
+/* The Eye Icon Button */
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #8b92a5;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.password-toggle:hover {
+  color: #fff;
+}
+
+/* 6. Submit Button */
+.modal-submit-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #ffb400 0%, #ff9900 100%);
+  color: #000;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(255, 180, 0, 0.3);
+}
+
+.modal-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 180, 0, 0.4);
+}
+
+.modal-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 7. Footer & Messages */
+.modal-footer {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.modal-footer p {
+  color: #8b92a5;
+  font-size: 0.9rem;
+}
+
+.modal-link-text {
+  color: #ffb400;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal-link-text:hover {
+  color: #ffcc33;
+  text-decoration: underline;
+}
+
+.modal-error-msg {
+  margin-top: 16px;
+  padding: 10px;
+  background: rgba(255, 77, 79, 0.1);
+  border: 1px solid rgba(255, 77, 79, 0.2);
+  color: #ff4d4f;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.modal-success-msg {
+  margin-top: 16px;
+  padding: 10px;
+  background: rgba(39, 201, 63, 0.1);
+  border: 1px solid rgba(39, 201, 63, 0.2);
+  color: #27c93f;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.modal-success {
+  margin-top: 16px;
+  padding: 10px;
+  background: rgba(39, 201, 63, 0.1);
+  border: 1px solid rgba(39, 201, 63, 0.2);
+  color: #27c93f;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* --- SUCCESS MODAL --- */
+.success-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-modal {
+  background: #222;
+  color: #fff;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.5);
+  animation: popIn 0.25s cubic-bezier(.33,1.5,.68,1) 1;
+}
+
+.success-checkmark {
+  font-size: 3rem;
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+.success-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.success-message {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0;}
+  100% { transform: scale(1); opacity: 1;}
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.92);}
+  to { opacity: 1; transform: scale(1);}
+}
+@keyframes bounce {
+  0% { transform: scale(0.8);}
+  60% { transform: scale(1.15);}
+  100% { transform: scale(1);}
+}

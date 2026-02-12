@@ -1,0 +1,27 @@
+/* src/index.css */
+
+/* 1. UNIVERSAL RESET - Critical for layout stability */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* GLOBAL BACKGROUND: Pure Black to contrast with the #191C24 Cards */
+  background-color: #000000; 
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+  min-height: 100vh;
+  background: #181a20;
+}

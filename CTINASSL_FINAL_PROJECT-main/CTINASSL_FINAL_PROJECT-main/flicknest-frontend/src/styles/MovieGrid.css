@@ -1,0 +1,126 @@
+/* MovieGrid.css */
+
+.movie-section {
+  flex: 1;
+  background: #181a20;
+  width: 100vw;
+  margin: 0;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-section-title {
+  text-align: left;
+  color: #fff;
+  font-size: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: 0;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.movie-grid-single {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.movie-card {
+  background: #23262f;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  padding: 22px;
+  color: #e8eaed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.18s;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+.movie-card-wide {
+  width: 100%;
+  max-width: 700px;
+  min-width: 320px;
+  margin: 0 auto;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 28px 32px;
+  box-sizing: border-box;
+}
+
+.movie-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  background: #191b21;
+}
+
+.movie-image-wide {
+  width: 380px;
+  height: 180px;
+  object-fit: cover;
+  margin-right: 32px;
+  border-radius: 12px;
+  background: #191b21;
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .movie-card-wide {
+    flex-direction: column;
+    align-items: center;
+    max-width: 95vw;
+    padding: 18px 4vw;
+  }
+  .movie-image-wide {
+    margin-right: 0;
+    margin-bottom: 18px;
+    width: 100%;
+    height: 180px;
+  }
+}
+
+.movie-info h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.movie-meta {
+  color: #b0b3b8;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.movie-rating {
+  color: #ffb400;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.movie-description {
+  font-size: 0.98rem;
+  color: #c4c6ca;
+  margin-bottom: 10px;
+  text-align: center;
+}

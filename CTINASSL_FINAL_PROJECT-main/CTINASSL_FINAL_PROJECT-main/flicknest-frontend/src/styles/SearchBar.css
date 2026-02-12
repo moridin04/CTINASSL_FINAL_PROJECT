@@ -1,0 +1,61 @@
+/* src/styles/SearchBar.css */
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1); /* Glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px; /* Pill shape */
+  padding: 4px;
+  width: 500px; /* Default width */
+  transition: all 0.3s ease;
+}
+
+/* Glow effect and expansion when you click inside */
+.search-bar-container:focus-within {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-color: #FFA600;
+  box-shadow: 0 0 0 4px rgba(255, 166, 0, 0.15);
+  width: 350px; /* Expands width */
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 8px 16px;
+  flex: 1;
+  font-size: 0.95rem;
+  outline: none;
+  font-family: inherit;
+}
+
+.search-input::placeholder {
+  color: #888;
+  font-weight: 400;
+}
+
+.search-btn {
+  background: #FFA600;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; /* Perfect circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1.1rem;
+  transition: transform 0.2s, background-color 0.2s;
+  margin-right: 2px;
+}
+
+.search-btn:hover {
+  background-color: #ff8c00;
+  transform: scale(1.05);
+}
+
+.search-btn:active {
+  transform: scale(0.95);
+}

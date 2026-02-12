@@ -1,0 +1,49 @@
+/* Hero.css */
+
+.hero {
+  position: relative;
+  background: url('../assets/watching.avif') center/cover no-repeat;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  background: rgba(15, 15, 18, 0.65);
+  padding: 60px 32px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+  line-height: 1.2;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.7);
+}
+
+.hero-sub {
+  font-weight: 500;
+  color: #ff6600;
+}
+
+.cta-btn {
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 14px 42px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+.cta-btn:hover {
+  background: #e65c00;
+}

@@ -1,0 +1,211 @@
+/* src/admin/components/Dashboard.css */
+
+/* --- Main Layout --- */
+.dashboard-container {
+  margin-left: 260px;
+  padding: 40px;
+  width: auto;
+  max-width: 100%;
+  min-height: 100vh;
+  /* FIX: Changed from White to Black to match the theme */
+  background-color: #000000; 
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- Header --- */
+.dashboard-header h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.dashboard-header p {
+  color: #9ca3af; /* Cool Grey */
+  margin-bottom: 32px;
+}
+
+/* --- Stats Grid --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: #191C24; /* Surface Color */
+  padding: 24px;
+  border-radius: 16px;
+  /* ENHANCED: Subtle glass-like border instead of solid grey */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* ENHANCED: Deep shadow for depth on black bg */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  /* HOVER: Glow with your Magenta brand color */
+  border-color: #AF1763; 
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(175, 23, 99, 0.2);
+}
+
+.stat-card h3 {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.stat-number {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.stat-trend {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.stat-trend.positive { color: #198754; } /* Green */
+.stat-trend.neutral { color: #6b7280; }  /* Grey */
+
+/* --- Charts Section --- */
+.charts-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.chart-card {
+  background: #191C24;
+  padding: 24px;
+  border-radius: 16px;
+  /* Consistent Border & Shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chart-card h2 {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+/* --- Activity Section --- */
+.activity-card {
+  background: #191C24;
+  padding: 24px;
+  border-radius: 16px;
+  /* Consistent Border & Shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+.activity-card h2 {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.recent-activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-activity-list li {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  /* SEPARATOR: Very subtle dark line */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.recent-activity-list li:last-child {
+  border-bottom: none;
+}
+
+.activity-type {
+  font-size: 1.2rem;
+  margin-right: 16px;
+  background: #2A3038; /* Slightly lighter than card */
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.activity-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-name {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.activity-date {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* =========================================
+   LIGHT THEME OVERRIDES
+   ========================================= */
+body[data-theme="light"] .dashboard-container {
+  background-color: #f6f6f6;
+  color: #222222;
+}
+
+body[data-theme="light"] .dashboard-header h1 {
+  color: #222222;
+}
+
+body[data-theme="light"] .stat-card,
+body[data-theme="light"] .chart-card,
+body[data-theme="light"] .activity-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="light"] .stat-number,
+body[data-theme="light"] .chart-card h2,
+body[data-theme="light"] .activity-card h2 {
+  color: #222222;
+}
+
+body[data-theme="light"] .stat-card h3,
+body[data-theme="light"] .dashboard-header p {
+  color: #6b7280;
+}
+
+body[data-theme="light"] .recent-activity-list li {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+body[data-theme="light"] .activity-type {
+  background: #f3f4f6;
+  color: #222;
+  border: 1px solid #e5e7eb;
+}
+
+body[data-theme="light"] .activity-name {
+  color: #222222;
+}

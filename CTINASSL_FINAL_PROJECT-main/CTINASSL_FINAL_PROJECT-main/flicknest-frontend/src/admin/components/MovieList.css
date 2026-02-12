@@ -1,0 +1,257 @@
+/* src/admin/components/MovieList.css */
+
+/* =========================================
+   1. THEME VARIABLES
+   ========================================= */
+:root {
+  --bg-color: #000000;
+  --card-bg: #191C24;
+  --input-bg: #2A3038;
+  --border-color: #2c2e33;
+  --text-color: #ffffff;
+  --text-muted: #6c7293;
+  --hover-bg: #2A3038;
+  --table-header-bg: #0f1015;
+  --table-row-hover: #1f222b;
+  --poster-placeholder-bg: #2A3038;
+  --accent-color: #AF1763;
+}
+
+/* =========================================
+   2. LAYOUT & CARDS
+   ========================================= */
+.movie-list-container {
+  margin-left: 260px;
+  padding: 40px;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+
+.page-header { margin-bottom: 32px; }
+.page-header h1 { font-size: 1.8rem; color: var(--text-color); margin-bottom: 8px; font-weight: 700; }
+.page-header p { color: var(--text-muted); }
+
+.form-card, .table-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 32px;
+}
+
+.form-card h3, .table-card h3 {
+  margin-bottom: 24px;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 16px;
+  font-weight: 600;
+}
+
+/* =========================================
+   3. FORM ELEMENTS
+   ========================================= */
+.form-split-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.poster-section { display: flex; flex-direction: column; }
+.section-label { font-size: 0.9rem; font-weight: 600; color: var(--text-color); margin-bottom: 12px; }
+
+.poster-upload-area {
+  width: 100%;
+  height: 390px;
+  border: 2px dashed var(--border-color);
+  border-radius: 12px;
+  background: var(--poster-placeholder-bg);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; position: relative; overflow: hidden;
+  transition: all 0.3s ease;
+}
+.poster-upload-area:hover { border-color: #AF1763; background: rgba(175, 23, 99, 0.05); }
+
+.poster-placeholder { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.upload-icon-circle {
+  width: 56px; height: 56px; background: rgba(128, 128, 128, 0.1);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; color: #AF1763; margin-bottom: 16px;
+}
+.upload-text { font-weight: 600; color: var(--text-color); margin-bottom: 6px; }
+.upload-subtext { font-size: 0.8rem; color: var(--text-muted); }
+
+.poster-preview-container { width: 100%; height: 100%; position: relative; }
+.poster-preview-img { width: 100%; height: 100%; object-fit: cover; }
+.poster-overlay {
+  position: absolute; inset: 0; background: rgba(0,0,0,0.7);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.2s; color: #fff; font-weight: 600;
+}
+.poster-upload-area:hover .poster-overlay { opacity: 1; }
+
+.remove-poster-btn {
+  position: absolute; top: 12px; right: 12px;
+  background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.3);
+  color: #fff; width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 10;
+}
+
+.details-section { display: flex; flex-direction: column; gap: 20px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group { display: flex; flex-direction: column; }
+.form-group label { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); margin-bottom: 8px; }
+
+.form-group input, .form-group textarea {
+  padding: 12px 16px; 
+  background: var(--input-bg); 
+  border: 1px solid var(--border-color);
+  border-radius: 8px; 
+  font-size: 0.95rem; 
+  color: var(--text-color); 
+  width: 100%;
+  box-sizing: border-box;
+}
+.form-group input:focus, .form-group textarea:focus {
+  outline: none; border-color: #AF1763;
+}
+
+.form-actions { display: flex; gap: 16px; margin-top: 12px; }
+.btn-primary {
+  background: #AF1763; color: #fff; border: none; padding: 12px 32px;
+  border-radius: 8px; font-weight: 600; cursor: pointer;
+}
+.btn-secondary {
+  background: transparent; color: var(--text-color); border: 1px solid var(--border-color);
+  padding: 12px 24px; border-radius: 8px; font-weight: 500; cursor: pointer;
+}
+
+/* =========================================
+   4. TABLE STYLING
+   ========================================= */
+.table-responsive { width: 100%; overflow-x: auto; }
+.movie-table { width: 100%; border-collapse: collapse; min-width: 900px; }
+
+.movie-table th {
+  text-align: left; padding: 16px; font-size: 0.8rem; color: var(--text-muted);
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border-color); 
+  background: var(--table-header-bg);
+}
+
+.movie-table td {
+  padding: 12px 16px; 
+  border-bottom: 1px solid var(--border-color); 
+  color: var(--text-muted);
+  font-size: 0.9rem; 
+  vertical-align: middle;
+}
+.movie-table tr:hover { background-color: var(--table-row-hover); }
+
+.table-poster-img {
+  width: 45px; height: 65px; object-fit: cover; border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+.no-poster-box {
+  width: 45px; height: 65px; background: var(--poster-placeholder-bg); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center; color: var(--text-muted);
+}
+
+.font-medium { font-weight: 500; color: var(--text-color); font-size: 0.95rem; }
+
+/* =========================================
+   5. GENRE BADGES (FIXED - SHOW ALL)
+   ========================================= */
+/* Increased width to fit more genres */
+.movie-table th:nth-child(3),
+.movie-table td:nth-child(3) {
+  width: 280px; 
+  white-space: normal; /* Allows row to grow vertically if needed */
+}
+
+.genre-badges {
+  display: flex;
+  flex-wrap: wrap; /* Allows badges to stack to the next line */
+  gap: 6px;
+  align-items: center;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(13, 110, 253, 0.15); 
+  color: #0D6EFD;
+  border: 1px solid rgba(13, 110, 253, 0.2);
+  white-space: nowrap;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Status Badges */
+.badge-purple { background: rgba(175, 23, 99, 0.15); color: #ff4d94; border-color: rgba(175, 23, 99, 0.2); }
+.badge-blue { background: rgba(13, 202, 240, 0.15); color: #0dcaf0; border-color: rgba(13, 202, 240, 0.2); }
+.badge-default { background: rgba(25, 135, 84, 0.15); color: #20c997; border-color: rgba(25, 135, 84, 0.2); }
+
+/* =========================================
+   6. ACTIONS COLUMN (SIDE-BY-SIDE)
+   ========================================= */
+.movie-table td:last-child {
+  width: 150px;
+  text-align: right;
+}
+
+/* Wrapper to force side-by-side alignment */
+.actions-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px; /* Space between buttons */
+}
+
+/* Smaller, Compact Buttons */
+.action-btn {
+  border: none; 
+  background: none; 
+  cursor: pointer; 
+  font-size: 0.75rem; /* Smaller text */
+  font-weight: 600; 
+  padding: 6px 10px; /* Smaller padding */
+  border-radius: 6px;
+  transition: all 0.2s; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 4px;
+  line-height: 1;
+}
+
+.action-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.action-btn.edit { 
+  color: #0D6EFD; 
+  background: rgba(13, 110, 253, 0.1); 
+}
+.action-btn.edit:hover { 
+  background: #0D6EFD; 
+  color: #fff; 
+}
+
+.action-btn.delete { 
+  color: #AB2E3C; 
+  background: rgba(171, 46, 60, 0.1); 
+}
+.action-btn.delete:hover { 
+  background: #AB2E3C; 
+  color: #fff; 
+}

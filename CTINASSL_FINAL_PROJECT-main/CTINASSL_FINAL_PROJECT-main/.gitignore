@@ -1,0 +1,28 @@
+# environment files
+*.env
+.env
+server/.env
+flicknest-frontend/.env
+frontend/.env
+
+# node_modules
+node_modules/
+server/node_modules/
+flicknest-frontend/node_modules/
+
+# build artifacts
+flicknest-frontend/build/
+build/
+dist/
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# temporary files
+.DS_Store
+*.swp
+*.swo
+*~
